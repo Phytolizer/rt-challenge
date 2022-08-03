@@ -195,4 +195,40 @@ public class TupleTest
         Assert.Equal(Tuple.Vector(-1, 2, -1), a.Cross(b));
         Assert.Equal(Tuple.Vector(1, -2, 1), b.Cross(a));
     }
+
+    [Fact]
+    public void ColorsAreTuples()
+    {
+        var c = new Color(-0.5, 0.4, 1.7);
+        Assert.Equal(-0.5, c.Red, new FloatComparer());
+        Assert.Equal(0.4, c.Green, new FloatComparer());
+        Assert.Equal(1.7, c.Blue, new FloatComparer());
+    }
+
+    [Fact]
+    public void AddingColors()
+    {
+        var c1 = new Color(0.9, 0.6, 0.75);
+        var c2 = new Color(0.7, 0.1, 0.25);
+        var expected = new Color(1.6, 0.7, 1.0);
+        Assert.Equal(expected, c1 + c2);
+    }
+
+    [Fact]
+    public void SubtractingColors()
+    {
+        var c1 = new Color(0.9, 0.6, 0.75);
+        var c2 = new Color(0.7, 0.1, 0.25);
+        var expected = new Color(0.2, 0.5, 0.5);
+        Assert.Equal(expected, c1 - c2);
+    }
+
+    [Fact]
+    public void MultiplyingColors()
+    {
+        var c1 = new Color(1, 0.2, 0.4);
+        var c2 = new Color(0.9, 1, 0.1);
+        var expected = new Color(0.9, 0.2, 0.04);
+        Assert.Equal(expected, c1 * c2);
+    }
 }
