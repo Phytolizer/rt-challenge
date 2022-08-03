@@ -1,5 +1,8 @@
-using Xunit;
+using System.Collections.Generic;
+
 using RtChallenge;
+
+using Xunit;
 
 namespace RtTest;
 
@@ -61,7 +64,7 @@ public class TupleTest
         var expected = Tuple.Vector(-2, -4, -6);
         Assert.Equal(expected, p1 - p2);
     }
-    
+
     [Fact]
     public void SubtractingAVectorFromAPoint()
     {
@@ -119,5 +122,29 @@ public class TupleTest
         var a = new Tuple(1, -2, 3, -4);
         var expected = new Tuple(0.5, -1, 1.5, -2);
         Assert.Equal(expected, a / 2);
+    }
+
+    private static IEnumerable<(Tuple v, double m)> GetMagnitudes()
+    {
+        yield return (Tuple.Vector(1, 0, 0), 1);
+        yield return (Tuple.Vector(0, 1, 0), 1);
+        yield return (Tuple.Vector(0, 0, 1), 1);
+        yield return (Tuple.Vector(1, 2, 3), System.Math.Sqrt(14));
+        yield return (Tuple.Vector(-1, -2, -3), System.Math.Sqrt(14));
+    }
+
+    private static IEnumerable<object[]> GetMagnitudeData()
+    {
+        foreach (var (v, m) in GetMagnitudes())
+        {
+            yield return new object[] { v, m };
+        }
+    }
+
+    [Theory]
+    [MemberData(nameof(GetMagnitudeData))]
+    public void MagnitudeOfAVector(Tuple v, double m)
+    {
+        Assert.Equal(m, v.Magnitude());
     }
 }

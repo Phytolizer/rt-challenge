@@ -35,6 +35,10 @@ public class Tuple
     {
         return new Tuple(x, y, z, 0.0);
     }
+    public double Magnitude()
+    {
+        return Math.Sqrt(X * X + Y * Y + Z * Z + W * W);
+    }
     public override bool Equals(object? obj)
     {
         var comparer = new FloatComparer();
