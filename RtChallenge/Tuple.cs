@@ -44,6 +44,14 @@ public class Tuple
         var m = Magnitude();
         return new Tuple(X / m, Y / m, Z / m, W / m);
     }
+    public double Dot(Tuple b)
+    {
+        return 
+            X * b.X + 
+            Y * b.Y + 
+            Z * b.Z + 
+            W * b.W;
+    }
     public override bool Equals(object? obj)
     {
         var comparer = new FloatComparer();
