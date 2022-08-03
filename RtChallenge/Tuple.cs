@@ -52,6 +52,15 @@ public class Tuple
             Z * b.Z + 
             W * b.W;
     }
+    public Tuple Cross(Tuple b)
+    {
+        return new Tuple(
+            Y * b.Z - Z * b.Y,
+            Z * b.X - X * b.Z,
+            X * b.Y - Y * b.X,
+            0.0
+        );
+    }
     public override bool Equals(object? obj)
     {
         var comparer = new FloatComparer();

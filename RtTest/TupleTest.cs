@@ -186,4 +186,13 @@ public class TupleTest
         var b = Tuple.Vector(2, 3, 4);
         Assert.Equal(20, a.Dot(b), new FloatComparer());
     }
+
+    [Fact]
+    public void CrossProductOfTwoVectors()
+    {
+        var a = Tuple.Vector(1, 2, 3);
+        var b = Tuple.Vector(2, 3, 4);
+        Assert.Equal(Tuple.Vector(-1, 2, -1), a.Cross(b));
+        Assert.Equal(Tuple.Vector(1, -2, 1), b.Cross(a));
+    }
 }
