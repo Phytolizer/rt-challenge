@@ -53,4 +53,52 @@ public class Tuple
             W.GetHashCode()
         );
     }
+    public static Tuple operator+(Tuple a, Tuple b)
+    {
+        return new Tuple(
+            a.X + b.X, 
+            a.Y + b.Y, 
+            a.Z + b.Z, 
+            a.W + b.W
+        );
+    }
+    public static Tuple operator-(Tuple a, Tuple b)
+    {
+        return new Tuple(
+            a.X - b.X, 
+            a.Y - b.Y, 
+            a.Z - b.Z, 
+            a.W - b.W
+        );
+    }
+    public static Tuple operator-(Tuple a)
+    {
+        return new Tuple(
+            -a.X, 
+            -a.Y, 
+            -a.Z, 
+            -a.W
+        );
+    }
+    public static Tuple operator*(Tuple a, double t)
+    {
+        return new Tuple(
+            a.X * t, 
+            a.Y * t, 
+            a.Z * t, 
+            a.W * t
+        );
+    }
+    public static Tuple operator*(double t, Tuple a)
+    {
+        return a * t;
+    }
+    public static Tuple operator/(Tuple a, double t)
+    {
+        return a * (1 / t);
+    }
+    public static Tuple operator/(double t, Tuple a)
+    {
+        return a / t;
+    }
 }
