@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtChallenge", "RtChallenge\RtChallenge.csproj", "{E04DF340-98ED-4C5A-84E2-F7665361B515}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtTest", "RtTest\RtTest.csproj", "{266989D2-4434-4975-A286-8A45ECEBAF6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{E04DF340-98ED-4C5A-84E2-F7665361B515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E04DF340-98ED-4C5A-84E2-F7665361B515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E04DF340-98ED-4C5A-84E2-F7665361B515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266989D2-4434-4975-A286-8A45ECEBAF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266989D2-4434-4975-A286-8A45ECEBAF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266989D2-4434-4975-A286-8A45ECEBAF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266989D2-4434-4975-A286-8A45ECEBAF6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
