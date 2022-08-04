@@ -80,4 +80,12 @@ public class CanvasTest
             lines.Skip(3)
         );
     }
+
+    [Fact]
+    public void PpmFilesAreTerminatedByANewlineCharacter()
+    {
+        var c = new Canvas(5, 3);
+        var ppm = c.ToPpm();
+        Assert.EndsWith("\n", ppm);
+    }
 }
