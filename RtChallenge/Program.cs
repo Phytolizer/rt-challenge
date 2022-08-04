@@ -22,7 +22,6 @@ internal static class Program
             );
         }
 
-        using var file = File.CreateText("output.ppm");
-        file.Write(c.ToPpm());
+        File.WriteAllText("output.ppm", c.ToPpm());
     }
 }
