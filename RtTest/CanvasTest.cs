@@ -54,11 +54,30 @@ public class CanvasTest
         var lines = ppm.Split("\n", System.StringSplitOptions.RemoveEmptyEntries);
         Assert.Equal(
             new[] {
-                "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
-                "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0",
-                "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255"
+                "255 0 0", "0 0 0", "0 0 0", "0 0 0", "0 0 0",
+                "0 0 0", "0 0 0", "0 128 0", "0 0 0", "0 0 0",
+                "0 0 0", "0 0 0", "0 0 0", "0 0 0", "0 0 255"
             },
-            lines.Skip(3).Take(3)
+            lines.Skip(3)
+        );
+    }
+
+    [Fact]
+    public void SplittingLongLinesInPpmFiles()
+    {
+        var c = new Canvas(10, 2);
+        for (int i = 0; i < c.Width; i++)
+        {
+            for (int j = 0; j < c.Height; j++)
+            {
+                c.WritePixel(i, j, new Color(1, 0.8, 0.6));
+            }
+        }
+        var ppm = c.ToPpm();
+        var lines = ppm.Split("\n", System.StringSplitOptions.RemoveEmptyEntries);
+        Assert.Equal(
+            Enumerable.Repeat("255 204 153", 20),
+            lines.Skip(3)
         );
     }
 }

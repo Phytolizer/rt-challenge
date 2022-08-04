@@ -6,7 +6,7 @@ public class Color : Tuple
     public double Green => Y;
     public double Blue => Z;
 
-    public Color(double red, double green, double blue) 
+    public Color(double red, double green, double blue)
         : base(red, green, blue, 0)
     {
     }

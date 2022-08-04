@@ -46,10 +46,10 @@ public class Tuple
     }
     public double Dot(Tuple b)
     {
-        return 
-            X * b.X + 
-            Y * b.Y + 
-            Z * b.Z + 
+        return
+            X * b.X +
+            Y * b.Y +
+            Z * b.Z +
             W * b.W;
     }
     public Tuple Cross(Tuple b)
@@ -82,36 +82,36 @@ public class Tuple
     public static Tuple operator+(Tuple a, Tuple b)
     {
         return new Tuple(
-            a.X + b.X, 
-            a.Y + b.Y, 
-            a.Z + b.Z, 
+            a.X + b.X,
+            a.Y + b.Y,
+            a.Z + b.Z,
             a.W + b.W
         );
     }
     public static Tuple operator-(Tuple a, Tuple b)
     {
         return new Tuple(
-            a.X - b.X, 
-            a.Y - b.Y, 
-            a.Z - b.Z, 
+            a.X - b.X,
+            a.Y - b.Y,
+            a.Z - b.Z,
             a.W - b.W
         );
     }
     public static Tuple operator-(Tuple a)
     {
         return new Tuple(
-            -a.X, 
-            -a.Y, 
-            -a.Z, 
+            -a.X,
+            -a.Y,
+            -a.Z,
             -a.W
         );
     }
     public static Tuple operator*(Tuple a, double t)
     {
         return new Tuple(
-            a.X * t, 
-            a.Y * t, 
-            a.Z * t, 
+            a.X * t,
+            a.Y * t,
+            a.Z * t,
             a.W * t
         );
     }

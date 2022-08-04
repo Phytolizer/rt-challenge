@@ -151,14 +151,14 @@ public class TupleTest
     private static IEnumerable<(Tuple v, Tuple expected)> GetNormalizedVectors()
     {
         yield return (
-            Tuple.Vector(4, 0, 0), 
+            Tuple.Vector(4, 0, 0),
             Tuple.Vector(1, 0, 0)
         );
         yield return (
-            Tuple.Vector(1, 2, 3), 
+            Tuple.Vector(1, 2, 3),
             Tuple.Vector(
-                1 / System.Math.Sqrt(14), 
-                2 / System.Math.Sqrt(14), 
+                1 / System.Math.Sqrt(14),
+                2 / System.Math.Sqrt(14),
                 3 / System.Math.Sqrt(14)
             )
         );

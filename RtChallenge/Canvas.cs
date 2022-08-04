@@ -32,20 +32,6 @@ public class Canvas
         return Pixels[y][x];
     }
 
-    private static IEnumerable<string> PpmRow(IEnumerable<Color> row)
-    {
-        foreach (var color in row)
-        {
-            var red = (int)Math.Round(color.Red * 255);
-            red = Math.Clamp(red, 0, 255);
-            var green = (int)Math.Round(color.Green * 255);
-            green = Math.Clamp(green, 0, 255);
-            var blue = (int)Math.Round(color.Blue * 255);
-            blue = Math.Clamp(blue, 0, 255);
-            yield return $"{red} {green} {blue}";
-        }
-    }
-
     public string ToPpm()
     {
         var result = new StringBuilder();
@@ -54,8 +40,16 @@ public class Canvas
         result.AppendLine("255");
         foreach (var row in Pixels)
         {
-            result.AppendJoin(' ', PpmRow(row));
-            result.AppendLine();
+            foreach (var color in row)
+            {
+                var red = (int)Math.Round(color.Red * 255);
+                red = Math.Clamp(red, 0, 255);
+                var green = (int)Math.Round(color.Green * 255);
+                green = Math.Clamp(green, 0, 255);
+                var blue = (int)Math.Round(color.Blue * 255);
+                blue = Math.Clamp(blue, 0, 255);
+                result.AppendLine($"{red} {green} {blue}");
+            }
         }
         return result.ToString();
     }
