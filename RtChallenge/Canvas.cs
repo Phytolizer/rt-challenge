@@ -13,15 +13,13 @@ public class Canvas
     {
         Width = width;
         Height = height;
-        Pixels = new Color[height][];
-        for (var y = 0; y < height; y++)
-        {
-            Pixels[y] = new Color[width];
-            for (var x = 0; x < width; x++)
-            {
-                Pixels[y][x] = new Color(0, 0, 0);
-            }
-        }
+        Pixels = Enumerable.Range(0, height)
+            .Select(
+                _ => Enumerable.Range(0, width)
+                    .Select(_ => new Color(0, 0, 0))
+                    .ToArray()
+            )
+            .ToArray();
     }
 
     public void WritePixel(int x, int y, Color color)
