@@ -1,4 +1,7 @@
+using System.Linq;
+
 using RtChallenge;
+
 using Xunit;
 
 namespace RtTest;
@@ -27,5 +30,35 @@ public class CanvasTest
         var red = new Color(1, 0, 0);
         c.WritePixel(2, 3, red);
         Assert.Equal(red, c.PixelAt(2, 3));
+    }
+
+    [Fact]
+    public void ConstructingThePpmHeader()
+    {
+        var c = new Canvas(5, 3);
+        var ppm = c.ToPpm();
+        Assert.StartsWith("P3\n5 3\n255\n", ppm);
+    }
+
+    [Fact]
+    public void ConstructingThePpmPixelData()
+    {
+        var c = new Canvas(5, 3);
+        var c1 = new Color(1.5, 0, 0);
+        var c2 = new Color(0, 0.5, 0);
+        var c3 = new Color(-0.5, 0, 1);
+        c.WritePixel(0, 0, c1);
+        c.WritePixel(2, 1, c2);
+        c.WritePixel(4, 2, c3);
+        var ppm = c.ToPpm();
+        var lines = ppm.Split("\n", System.StringSplitOptions.RemoveEmptyEntries);
+        Assert.Equal(
+            new[] {
+                "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+                "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0",
+                "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255"
+            },
+            lines.Skip(3).Take(3)
+        );
     }
 }
