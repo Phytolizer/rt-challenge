@@ -24,6 +24,10 @@ public class Canvas
 
     public void WritePixel(int x, int y, Color color)
     {
+        if (x < 0 || x >= Width || y < 0 || y >= Height)
+        {
+            return;
+        }
         Pixels[y][x] = color;
     }
 
