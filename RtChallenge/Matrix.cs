@@ -17,4 +17,21 @@ public class Matrix
     {
         return Values[row][column];
     }
+
+    public override bool Equals(object? obj)
+    {
+        var c = new FloatComparer();
+        return obj is Matrix m &&
+            Rows == m.Rows &&
+            Columns == m.Columns &&
+            Values.Zip(
+                m.Values,
+                (a, b) => a.Zip(b).All(t => c.Equals(t.First, t.Second))
+            ).All(x => x);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }
