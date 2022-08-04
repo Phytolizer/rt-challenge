@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace RtChallenge;
 
 public class Matrix
@@ -33,5 +35,42 @@ public class Matrix
     public override int GetHashCode()
     {
         return base.GetHashCode();
+    }
+
+    public static Matrix operator *(Matrix a, Matrix b)
+    {
+        if (a.Columns != b.Rows)
+        {
+            throw new ArgumentException("Columns of A must match rows of B");
+        }
+        var c = new double[a.Rows][];
+        for (var i = 0; i < a.Rows; i++)
+        {
+            c[i] = new double[b.Columns];
+            for (var j = 0; j < b.Columns; j++)
+            {
+                c[i][j] = 0;
+                for (var k = 0; k < a.Columns; k++)
+                {
+                    c[i][j] += a.Values[i][k] * b.Values[k][j];
+                }
+            }
+        }
+        return new Matrix(c);
+    }
+
+    public override string ToString()
+    {
+        var sb = new StringBuilder();
+        for (var i = 0; i < Rows; i++)
+        {
+            for (var j = 0; j < Columns; j++)
+            {
+                sb.Append(Values[i][j]);
+                sb.Append(' ');
+            }
+            sb.AppendLine();
+        }
+        return sb.ToString();
     }
 }

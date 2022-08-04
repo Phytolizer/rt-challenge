@@ -79,7 +79,7 @@ public class Tuple
             W.GetHashCode()
         );
     }
-    public static Tuple operator+(Tuple a, Tuple b)
+    public static Tuple operator +(Tuple a, Tuple b)
     {
         return new Tuple(
             a.X + b.X,
@@ -88,7 +88,7 @@ public class Tuple
             a.W + b.W
         );
     }
-    public static Tuple operator-(Tuple a, Tuple b)
+    public static Tuple operator -(Tuple a, Tuple b)
     {
         return new Tuple(
             a.X - b.X,
@@ -97,7 +97,7 @@ public class Tuple
             a.W - b.W
         );
     }
-    public static Tuple operator-(Tuple a)
+    public static Tuple operator -(Tuple a)
     {
         return new Tuple(
             -a.X,
@@ -106,7 +106,7 @@ public class Tuple
             -a.W
         );
     }
-    public static Tuple operator*(Tuple a, double t)
+    public static Tuple operator *(Tuple a, double t)
     {
         return new Tuple(
             a.X * t,
@@ -115,15 +115,15 @@ public class Tuple
             a.W * t
         );
     }
-    public static Tuple operator*(double t, Tuple a)
+    public static Tuple operator *(double t, Tuple a)
     {
         return a * t;
     }
-    public static Tuple operator/(Tuple a, double t)
+    public static Tuple operator /(Tuple a, double t)
     {
         return a * (1 / t);
     }
-    public static Tuple operator/(double t, Tuple a)
+    public static Tuple operator /(double t, Tuple a)
     {
         return a / t;
     }

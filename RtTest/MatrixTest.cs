@@ -95,4 +95,31 @@ public class MatrixTest
         });
         Assert.NotEqual(a, b);
     }
+
+    [Fact]
+    public void MultiplyingTwoMatrices()
+    {
+        var a = new Matrix(new[]
+        {
+            new[] { 1.0, 2.0, 3.0, 4.0 },
+            new[] { 5.0, 6.0, 7.0, 8.0 },
+            new[] { 9.0, 8.0, 7.0, 6.0 },
+            new[] { 5.0, 4.0, 3.0, 2.0 }
+        });
+        var b = new Matrix(new[]
+        {
+            new[] { -2.0, 1.0, 2.0, 3.0 },
+            new[] { 3.0, 2.0, 1.0, -1.0 },
+            new[] { 4.0, 3.0, 6.0, 5.0 },
+            new[] { 1.0, 2.0, 7.0, 8.0 }
+        });
+        var expected = new Matrix(new[]
+        {
+            new[] { 20.0, 22.0, 50.0, 48.0 },
+            new[] { 44.0, 54.0, 114.0, 108.0 },
+            new[] { 40.0, 58.0, 110.0, 102.0 },
+            new[] { 16.0, 26.0, 46.0, 42.0 }
+        });
+        Assert.Equal(expected, a * b);
+    }
 }
